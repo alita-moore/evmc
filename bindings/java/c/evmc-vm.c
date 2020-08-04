@@ -143,9 +143,6 @@ JNIEXPORT jlong JNICALL Java_org_ethereum_evmc_EvmcVm_address(JNIEnv* jenv,
                                                               jobject buf)
 {
     (void)jcls;
-#ifdef DEBUG
-    printf("Entering address\n");
-#endif
     void* p = (*jenv)->GetDirectBufferAddress(jenv, buf);
     return (jlong)p;
 }

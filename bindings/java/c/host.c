@@ -35,9 +35,6 @@ static jbyteArray CopyDataToJava(JNIEnv* jenv, const void* ptr, size_t size)
 
 static bool account_exists_fn(struct evmc_host_context* context, const evmc_address* address)
 {
-#ifdef DEBUG
-    printf("Entering account_exists_fn\n");
-#endif
     bool result = false;
     const char java_method_name[] = "account_exists";
     const char java_method_signature[] = "(I[B)I";
@@ -72,9 +69,6 @@ static evmc_bytes32 get_storage_fn(struct evmc_host_context* context,
                                    const evmc_address* address,
                                    const evmc_bytes32* key)
 {
-#ifdef DEBUG
-    printf("Entering get_storage_fn\n");
-#endif
     evmc_bytes32 result;
     const char java_method_name[] = "get_storage";
     const char java_method_signature[] = "(I[B[B)Ljava/nio/ByteBuffer;";
@@ -117,9 +111,6 @@ static enum evmc_storage_status set_storage_fn(struct evmc_host_context* context
                                                const evmc_bytes32* key,
                                                const evmc_bytes32* value)
 {
-#ifdef DEBUG
-    printf("Entering set_storage_fn\n");
-#endif
     enum evmc_storage_status result = 0;
     const char java_method_name[] = "set_storage";
     const char java_method_signature[] = "(I[B[B[B)I";
@@ -157,9 +148,6 @@ static enum evmc_storage_status set_storage_fn(struct evmc_host_context* context
 
 static evmc_uint256be get_balance_fn(struct evmc_host_context* context, const evmc_address* address)
 {
-#ifdef DEBUG
-    printf("Entering get_balance_fn\n");
-#endif
     evmc_uint256be result;
     char java_method_name[] = "get_balance";
     char java_method_signature[] = "(I[B)Ljava/nio/ByteBuffer;";
@@ -196,9 +184,6 @@ static evmc_uint256be get_balance_fn(struct evmc_host_context* context, const ev
 
 static size_t get_code_size_fn(struct evmc_host_context* context, const evmc_address* address)
 {
-#ifdef DEBUG
-    printf("Entering get_code_size_fn\n");
-#endif
     size_t result = 0;
     char java_method_name[] = "get_code_size";
     char java_method_signature[] = "(I[B)I";
@@ -230,9 +215,6 @@ static size_t get_code_size_fn(struct evmc_host_context* context, const evmc_add
 
 static evmc_bytes32 get_code_hash_fn(struct evmc_host_context* context, const evmc_address* address)
 {
-#ifdef DEBUG
-    printf("Entering get_code_hash_fn\n");
-#endif
     evmc_bytes32 result;
     char java_method_name[] = "get_code_hash";
     char java_method_signature[] = "(I[B)Ljava/nio/ByteBuffer;";
@@ -276,9 +258,6 @@ static size_t copy_code_fn(struct evmc_host_context* context,
                            size_t buffer_size)
 {
     (void)buffer_size;  // FIXME: buffer_size suspiciously unused.
-#ifdef DEBUG
-    printf("Entering copy_code_fn");
-#endif
     size_t result = 0;
     const char java_method_name[] = "copy_code";
     const char java_method_signature[] = "(I[BI)Ljava/nio/ByteBuffer;";
@@ -323,9 +302,6 @@ static void selfdestruct_fn(struct evmc_host_context* context,
                             const evmc_address* address,
                             const evmc_address* beneficiary)
 {
-#ifdef DEBUG
-    printf("Entering selfdestruct");
-#endif
     const char java_method_name[] = "selfdestruct";
     const char java_method_signature[] = "(I[B[B)V";
     assert(context != NULL);
